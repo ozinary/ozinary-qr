@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="description" content="Ücretsiz, sınırsız, reklamsız ve gizlilik odaklı QR araç seti: oluştur, tara, toplu üret, doğrula ve dışa aktar. QR içeriğin tarayıcında işlenir.">
+  <meta name="robots" content="index,follow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ozinary QR">
+  <title>Ozinary QR — Ücretsiz QR Toolkit</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#generator">İçeriğe geç</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ozinary QR ana sayfa">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="19" y="3" width="10" height="10" rx="2"/><rect x="3" y="19" width="10" height="10" rx="2"/><path d="M19 19h4v4h-4zm6 0h4v10h-4zm-6 6h4v4h-4z"/></svg></span>
+      <span>OZINARY <b>QR</b></span>
+    </a>
+    <nav class="header-nav" aria-label="Ana menü">
+      <a href="#generator">Oluştur</a>
+      <a href="#scanner">Tara</a>
+      <a href="#batch">Toplu</a>
+      <a href="#toolkit">Araçlar</a>
+      <a href="#privacy">Gizlilik</a>
+      <div class="header-tools">
+        <button id="fontBtn" class="tiny-btn" type="button" title="Büyük yazı" aria-pressed="false">A+</button>
+        <button id="contrastBtn" class="tiny-btn" type="button" title="Yüksek kontrast" aria-pressed="false">◩</button>
+        <button id="langBtn" class="tiny-btn" type="button" title="Dil / Language">EN</button>
+        <button id="themeBtn" class="tiny-btn" type="button" title="Tema">◐</button>
+      </div>
+      <a class="nav-pill" href="https://ozinary.com" target="_blank" rel="noopener">Ozinary ↗</a>
+    </nav>
+  </header>
+
+  <nav class="mobile-section-nav container" aria-label="Mobil hızlı menü">
+    <a href="#generator">Oluştur</a><a href="#scanner">Tara</a><a href="#batch">Toplu</a><a href="#toolkit">Araçlar</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="eyebrow"><span class="status-dot"></span> Herkese açık • Ücretsiz • Reklamsız • Yerel işlem</div>
+      <h1>QR kodun senin.<br><span>Verin de senin.</span></h1>
+      <p class="hero-copy">Statik QR oluştur, tasarla, doğrula, tara, toplu üret ve baskıya hazır dışa aktar. Üyelik yok, tarama sınırı yok, son kullanma tarihi yok.</p>
+      <div class="trust-row" aria-label="Öne çıkan özellikler">
+        <span>🔒 Tarayıcıda oluşturulur</span><span>∞ Sınırsız kullanım</span><span>⌁ Çevrimdışı çalışır</span><span>◈ PNG + SVG + PDF</span><span>◎ QR Scanner</span>
+      </div>
+    </section>
+
+    <section id="generator" class="generator-wrap container" tabindex="-1">
+      <div class="section-headline">
+        <div><p class="kicker">QR STUDIO</p><h2>Oluştur ve tasarla</h2></div>
+        <div class="project-actions">
+          <button id="saveProjectBtn" class="ghost-btn" type="button">Bu cihazda kaydet</button>
+          <button id="exportProjectBtn" class="ghost-btn" type="button">JSON dışa aktar</button>
+          <label class="ghost-btn file-label">JSON içe aktar<input id="importProjectInput" type="file" accept="application/json,.json" hidden></label>
+        </div>
+      </div>
+
+      <div class="generator-card">
+        <div class="panel input-panel">
+          <div class="panel-heading">
+            <div><p class="kicker">01 / İÇERİK</p><h2>Ne için QR oluşturalım?</h2></div>
+            <span class="privacy-chip">● Yerel işlem</span>
+          </div>
+
+          <p class="mobile-tab-hint">QR türlerini görmek için yana kaydırın <span aria-hidden="true">→</span></p>
+          <div class="tabs" role="tablist" aria-label="QR türü">
+            <button class="tab active" type="button" data-type="url" role="tab" aria-selected="true">Bağlantı</button>
+            <button class="tab" type="button" data-type="text" role="tab">Metin</button>
+            <button class="tab" type="button" data-type="wifi" role="tab">Wi‑Fi</button>
+            <button class="tab" type="button" data-type="vcard" role="tab">vCard</button>
+            <button class="tab" type="button" data-type="whatsapp" role="tab">WhatsApp</button>
+            <button class="tab" type="button" data-type="location" role="tab">Konum</button>
+            <button class="tab" type="button" data-type="event" role="tab">Takvim</button>
+            <button class="tab" type="button" data-type="email" role="tab">E-posta</button>
+            <button class="tab" type="button" data-type="phone" role="tab">Telefon</button>
+            <button class="tab" type="button" data-type="sms" role="tab">SMS</button>
+          </div>
+          <div id="fields" class="fields" aria-live="polite"></div>
+
+        </div>
+
+        <aside class="panel preview-panel">
+          <div class="preview-topline"><div><p class="kicker">03 / QR KOD</p><h2>Hazır olduğunda indir</h2></div><button id="resetBtn" class="icon-btn" type="button" title="Sıfırla">↺</button></div>
+          <div class="qr-stage"><canvas id="previewCanvas" width="720" height="820" aria-label="QR kod önizlemesi"></canvas><div id="emptyState" class="empty-state"><span class="empty-icon">⌁</span><strong>QR önizlemesi</strong><small>İçerik girdikçe burada oluşacak.</small></div></div>
+          <div class="payload-preview"><span>QR içeriği</span><code id="payloadText">—</code></div>
+
+          <div class="verify-row">
+            <button id="verifyBtn" class="btn verify" type="button" disabled><span>✓ QR'ı doğrula</span><small id="verifySub">Tarayıcı destekliyorsa tekrar okur</small></button>
+            <span id="verifyBadge" class="verify-badge neutral">Henüz doğrulanmadı</span>
+          </div>
+
+          <div class="download-grid">
+            <button id="downloadPng" class="btn primary" type="button" disabled><span>PNG indir</span><small>Yüksek çözünürlük</small></button>
+            <button id="downloadSvg" class="btn secondary" type="button" disabled><span>SVG indir</span><small>Vektörel baskı</small></button>
+            <button id="downloadPdf" class="btn secondary" type="button" disabled><span>PDF indir</span><small>Baskıya hazır</small></button>
+            <button id="socialBtn" class="btn secondary" type="button" disabled><span>Story kartı</span><small>1080 × 1920</small></button>
+            <button id="shareBtn" class="btn secondary" type="button" disabled><span>Paylaş</span><small>Sistem paylaş menüsü</small></button>
+            <button id="printBtn" class="btn secondary" type="button" disabled><span>A4 yazdır</span><small>1 / 4 / 9 / 16 adet</small></button>
+          </div>
+
+          <div class="print-options">
+            <label class="select-field"><span>A4 düzeni</span><select id="printCount"><option value="1">1 / sayfa</option><option value="4" selected>4 / sayfa</option><option value="9">9 / sayfa</option><option value="16">16 / sayfa</option></select></label>
+            <label class="select-field"><span>Sticker boyutu</span><select id="stickerSize"><option value="50">50 × 50 mm</option><option value="70" selected>70 × 70 mm</option><option value="90">90 × 90 mm</option></select></label>
+            <div class="custom-grid-controls"><label class="field"><span>Sütun</span><input id="customCols" type="number" min="1" max="8" value="3"></label><label class="field"><span>Satır</span><input id="customRows" type="number" min="1" max="12" value="5"></label><button id="customPrintBtn" class="ghost-btn" type="button" disabled>Özel A4 ızgarası</button></div><button id="stickerPdfBtn" class="ghost-btn" type="button" disabled>Sticker PDF oluştur</button>
+          </div>
+          <a class="mobile-design-link" href="#design">Renk, logo ve tasarım ayarları <span aria-hidden="true">↓</span></a>
+          <div class="shortcut-note"><kbd>Ctrl/⌘</kbd> + <kbd>S</kbd> PNG • <kbd>Shift</kbd> ile SVG</div>
+        </aside>
+
+        <div class="panel design-panel" id="design">
+          <div class="divider"></div>
+          <div class="panel-heading compact"><div><p class="kicker">02 / TASARIM</p><h2>Görünümü ayarla</h2></div></div>
+
+          <div class="preset-row" aria-label="Hazır temalar">
+            <button class="preset active" type="button" data-preset="classic"><span class="preset-dot classic"></span>Klasik</button>
+            <button class="preset" type="button" data-preset="midnight"><span class="preset-dot midnight"></span>Gece</button>
+            <button class="preset" type="button" data-preset="ocean"><span class="preset-dot ocean"></span>Okyanus</button>
+            <button class="preset" type="button" data-preset="forest"><span class="preset-dot forest"></span>Orman</button>
+            <button class="preset" type="button" data-preset="paper"><span class="preset-dot paper"></span>Baskı</button>
+            <button class="preset" type="button" data-preset="berry"><span class="preset-dot berry"></span>Berry</button>
+          </div>
+
+          <div class="design-grid">
+            <label class="color-field"><span>QR rengi</span><span class="color-control"><input id="fgColor" type="color" value="#0b0b0d"><input id="fgHex" type="text" value="#0B0B0D" maxlength="7"></span></label>
+            <label class="color-field"><span>Arka plan</span><span class="color-control"><input id="bgColor" type="color" value="#ffffff"><input id="bgHex" type="text" value="#FFFFFF" maxlength="7"></span></label>
+            <label class="select-field"><span>Modül şekli</span><select id="moduleStyle"><option value="square">Kare</option><option value="rounded">Yuvarlatılmış</option><option value="dots">Nokta</option><option value="diamond">Elmas</option></select></label>
+            <label class="select-field"><span>Göz stili</span><select id="eyeStyle"><option value="square">Kare</option><option value="rounded" selected>Yuvarlatılmış</option><option value="circle">Dairesel</option></select></label>
+            <label class="select-field"><span>Hata düzeltme</span><select id="ecc"><option value="L">L — %7</option><option value="M">M — %15</option><option value="Q">Q — %25</option><option value="H" selected>H — %30</option></select></label>
+            <label class="select-field"><span>Sessiz alan</span><select id="quietZone"><option value="4" selected>4 modül — Standart</option><option value="6">6 modül</option><option value="8">8 modül</option></select></label>
+            <label class="select-field"><span>PNG boyutu</span><select id="pngSize"><option value="1024">1024 × 1024</option><option value="2048" selected>2048 × 2048</option><option value="4096">4096 × 4096</option></select></label>
+            <label class="select-field"><span>Çerçeve</span><select id="frameStyle"><option value="none">Yok</option><option value="border">İnce çerçeve</option><option value="card">Kart</option><option value="cta">CTA etiketi</option></select></label>
+          </div>
+
+          <div class="toggle-row">
+            <label class="switch-line"><input id="gradientToggle" type="checkbox"><span>Gradient QR</span></label>
+            <label id="accentWrap" class="color-field compact-color" hidden><span>İkinci renk</span><span class="color-control"><input id="accentColor" type="color" value="#5b5ce2"><input id="accentHex" type="text" value="#5B5CE2" maxlength="7"></span></label>
+          </div>
+
+          <div class="cta-presets">
+            <span>Hazır CTA:</span>
+            <button type="button" data-cta="Menüyü Aç">Menüyü Aç</button>
+            <button type="button" data-cta="Wi‑Fi'a Bağlan">Wi‑Fi'a Bağlan</button>
+            <button type="button" data-cta="Bizi Takip Et">Bizi Takip Et</button>
+            <button type="button" data-cta="Kartviziti Kaydet">Kartviziti Kaydet</button>
+          </div>
+          <label class="field"><span>QR altı / çerçeve etiketi</span><input id="qrLabel" type="text" maxlength="80" placeholder="Örn. Menüyü Aç"><small>PNG, SVG, PDF ve baskıda görünür.</small></label>
+
+          <div id="logoDrop" class="logo-box drop-zone" tabindex="0">
+            <div class="logo-copy"><strong>Ortaya logo ekle</strong><span>Sürükle-bırak veya seç. Logo yalnızca cihazında işlenir.</span></div>
+            <label class="upload-btn"><input id="logoInput" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden>Logo seç</label>
+            <button id="faviconBtn" class="ghost-btn" type="button">Site ikonunu dene</button>
+            <button id="removeLogo" class="ghost-btn" type="button" hidden>Kaldır</button>
+          </div>
+          <div class="logo-options">
+            <label class="select-field"><span>Logo kırpma</span><select id="logoShape"><option value="square">Kare</option><option value="circle">Daire</option><option value="contain">Orijinal oran</option></select></label>
+            <label class="range-field"><span>Logo boşluğu <b id="logoPaddingValue">12%</b></span><input id="logoPadding" type="range" min="0" max="30" value="12"></label>
+          </div>
+
+          <div id="qualityBox" class="quality-box good" aria-live="polite"><span id="qualityIcon">✓</span><div><strong id="qualityTitle">Okunabilirlik iyi</strong><p id="qualityText">Kontrast ve sessiz alan güvenli aralıkta.</p></div></div>
+          <p id="errorText" class="error-text" role="alert"></p>
+        </div>
+
+
+      </div>
+
+      <div class="micro-note"><span>⚡</span><p><b>Statik QR kodlar süresizdir.</b> QR'ın içine yazdığın bağlantı veya veri geçerli olduğu sürece kod çalışır; Ozinary QR'a bağımlı değildir.</p></div>
+    </section>
+
+    <section id="scanner" class="feature-section container">
+      <div class="section-headline"><div><p class="kicker">QR SCANNER</p><h2>Kameradan veya görselden QR oku</h2><p>Kamera görüntüsü ve yüklediğin görseller cihazında işlenir. Desteklenen tarayıcılarda yerleşik BarcodeDetector kullanılır.</p></div><span id="scannerSupport" class="support-chip">Destek kontrol ediliyor…</span></div>
+      <div class="scanner-grid">
+        <div class="scanner-card">
+          <div class="camera-stage"><video id="scannerVideo" playsinline muted></video><div class="camera-guide" aria-hidden="true"></div><canvas id="scannerCanvas" hidden></canvas></div>
+          <div class="scanner-actions"><button id="startScanBtn" class="btn primary" type="button">Kamerayı başlat</button><button id="stopScanBtn" class="btn secondary" type="button" disabled>Durdur</button><label class="btn secondary file-label">Görselden oku<input id="scanImageInput" type="file" accept="image/*" hidden></label></div>
+        </div>
+        <div class="scan-result-card"><span>Okunan içerik</span><textarea id="scanResult" rows="9" readonly placeholder="QR sonucu burada görünecek…"></textarea><div class="row-actions"><button id="copyScanBtn" class="ghost-btn" type="button">Kopyala</button><button id="useScanBtn" class="ghost-btn" type="button">Oluşturucuya aktar</button><a id="openScanLink" class="ghost-btn link-button" href="#" target="_blank" rel="noopener" hidden>Bağlantıyı aç ↗</a></div></div>
+      </div>
+    </section>
+
+    <section id="batch" class="feature-section container">
+      <div class="section-headline"><div><p class="kicker">BATCH GENERATOR</p><h2>CSV ile yüzlerce QR'ı tek seferde oluştur</h2><p><code>name,content</code> biçiminde yapıştır veya CSV/TXT yükle. En fazla 500 kayıt; tüm işlem tarayıcıda.</p></div></div>
+      <div class="batch-card">
+        <div class="batch-input"><textarea id="batchText" rows="10" spellcheck="false">name,content\nozinary,https://ozinary.com\nexample,https://example.com</textarea><div class="row-actions"><label class="ghost-btn file-label">CSV / TXT yükle<input id="batchFileInput" type="file" accept=".csv,.txt,text/csv,text/plain" hidden></label><button id="batchExampleBtn" class="ghost-btn" type="button">Örneği yenile</button></div></div>
+        <div class="batch-options">
+          <label class="select-field"><span>Çıktı</span><select id="batchFormat"><option value="png">PNG</option><option value="svg">SVG</option><option value="both">PNG + SVG</option></select></label>
+          <label class="select-field"><span>PNG boyutu</span><select id="batchPngSize"><option value="512">512 px</option><option value="1024" selected>1024 px</option><option value="2048">2048 px</option></select></label>
+          <label class="switch-line"><input id="batchUseStyle" type="checkbox" checked><span>Mevcut tasarımı kullan</span></label>
+          <button id="batchGenerateBtn" class="btn primary" type="button">ZIP oluştur</button>
+          <div class="progress-wrap"><div id="batchProgress" class="progress-bar"><span></span></div><small id="batchStatus">Hazır</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="toolkit" class="feature-section container">
+      <div class="section-headline"><div><p class="kicker">TOOLKIT</p><h2>Ek araçlar</h2></div></div>
+      <div class="tool-grid">
+        <article class="tool-card"><h3>QR boyut hesaplayıcı</h3><p>10:1 tarama mesafesi kuralı ve minimum modül boyutu üzerinden baskı için güvenli bir başlangıç önerisi verir.</p><label class="field"><span>Tarama mesafesi (cm)</span><input id="scanDistance" type="number" min="10" step="10" value="100"></label><div id="sizeCalcResult" class="calc-result">Önerilen minimum: —</div></article>
+        <article class="tool-card"><h3>URL temizleyici</h3><p>utm_*, fbclid, gclid ve benzeri takip parametrelerini cihazında kaldırır.</p><textarea id="cleanUrlInput" rows="4" placeholder="https://example.com/?utm_source=...&id=1"></textarea><div class="row-actions"><button id="cleanUrlBtn" class="ghost-btn" type="button">Takip parametrelerini kaldır</button><button id="useCleanUrlBtn" class="ghost-btn" type="button">QR'a aktar</button></div><code id="cleanUrlOutput">—</code></article>
+        <article class="tool-card projects-card"><h3>Cihazdaki projeler</h3><p>Yalnızca sen kaydettiğinde tarayıcının localStorage alanında tutulur. En fazla 20 proje.</p><label class="switch-line"><input id="autoHistory" type="checkbox"><span>Otomatik yerel geçmişi etkinleştir</span></label><div id="projectList" class="project-list"><span class="muted">Henüz kayıt yok.</span></div><button id="clearProjectsBtn" class="ghost-btn danger" type="button">Tüm yerel kayıtları sil</button></article>
+        <article class="tool-card"><h3>Geliştirici araçları</h3><p>Ham içerik, SVG kaynak kodu, Data URI ve embed kodunu kopyala.</p><div class="developer-buttons"><button id="copyPayloadBtn" class="ghost-btn" type="button">Payload kopyala</button><button id="copySvgBtn" class="ghost-btn" type="button">SVG kaynak</button><button id="copyDataUriBtn" class="ghost-btn" type="button">Data URI</button><button id="copyPngBase64Btn" class="ghost-btn" type="button">PNG Base64</button><button id="copyEmbedBtn" class="ghost-btn" type="button">Embed HTML</button></div><textarea id="developerOutput" rows="7" readonly placeholder="Seçtiğin çıktı burada görünecek…"></textarea></article>
+        <article class="tool-card"><h3>Açık kaynak</h3><p>Projenin kaynak koduna GitHub üzerinden ulaşabilir, inceleyebilir ve kendi sisteminde kullanabilirsin.</p><div class="developer-buttons"><!-- Proje deposu: https://github.com/ozinary/ozinary-qr --><a class="ghost-btn link-button" href="https://github.com/ozinary/ozinary-qr" target="_blank" rel="noopener noreferrer">GitHub'da görüntüle ↗</a></div></article>
+        <article class="tool-card"><h3>Erişilebilirlik</h3><p>Klavye ile kullanım, ekran okuyucu etiketleri, yüksek kontrast ve büyük yazı desteği dahildir. Sisteminin “hareketi azalt” tercihi de dikkate alınır.</p><div class="developer-buttons"><button id="a11yFontBtn" class="ghost-btn" type="button">Büyük yazıyı aç/kapat</button><button id="a11yContrastBtn" class="ghost-btn" type="button">Yüksek kontrastı aç/kapat</button></div></article>
+      </div>
+    </section>
+
+    <section id="privacy" class="info-section container">
+      <div class="section-label">GİZLİLİK</div>
+      <div class="info-grid">
+        <div><h2>QR içeriğin cihazından çıkmaz.</h2><p>QR oluşturma, tasarım, logo işleme, tarama, toplu üretim ve dışa aktarma doğrudan tarayıcında yapılır. Girdiğin bilgiler QR üretmek amacıyla uygulama sunucusuna gönderilmez.</p></div>
+        <div class="privacy-cards">
+          <article><span>01</span><h3>Veritabanı yok</h3><p>Hesap, bulut geçmişi veya QR kayıt sistemi yok. Yerel proje kaydı yalnızca sen açıkça seçersen cihazında tutulur.</p></article>
+          <article><span>02</span><h3>Takip yok</h3><p>QR koduna takip bağlantısı eklenmez. URL temizleyici de takip parametrelerini kaldırmana yardımcı olur.</p></article>
+          <article><span>03</span><h3>Çevrimdışı hazır</h3><p>Uygulama dosyaları önbelleğe alınabilir; QR içeriğin bu önbelleğe yazılmaz.</p></article>
+          <article><span>04</span><h3>Şeffaf istisna</h3><p>“Site ikonunu dene” seçeneğini kullanırsan hedef web sitesinin favicon dosyasına isteğe bağlı bir ağ isteği yapılır. Hosting sağlayıcısı da standart erişim logları tutabilir.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission container"><div class="mission-card"><p class="kicker">NEDEN ÜCRETSİZ?</p><h2>İnternetin basit araçları basit kalmalı.</h2><p>QR kod oluşturmak için üyelik, abonelik veya birkaç gün sonra kodu kilitleyen bir sistem gerekmemeli. Bu araç Ozinary tarafından herkesin özgürce kullanabilmesi için sunuluyor.</p><div class="mission-badges"><span>Reklamsız</span><span>Üyeliksiz</span><span>Tarama limitsiz</span><span>Süre sınırı yok</span><span>Çevrimdışı</span><span>MIT lisanslı</span></div></div></section>
+
+    <section id="faq" class="faq container">
+      <div class="section-label">SIKÇA SORULANLAR</div><h2>Merak edilenler</h2>
+      <details open><summary>Oluşturduğum QR kod gerçekten süresiz mi?</summary><p>Evet. Statik QR doğrudan veriyi taşır. Hedef bağlantın veya kodlanan veri geçerli olduğu sürece çalışır.</p></details>
+      <details><summary>Bir QR kod kaç kez taranabilir?</summary><p>Tarama limiti yoktur.</p></details>
+      <details><summary>QR doğrulama ne yapıyor?</summary><p>Tarayıcın BarcodeDetector destekliyorsa oluşturulan görüntüyü tekrar okuyup payload ile karşılaştırır. Destek yoksa kontrast, sessiz alan, yoğunluk ve logo gibi yapısal kontroller yapılır; bu durumda “otomatik okuma doğrulandı” iddiası verilmez.</p></details>
+      <details><summary>Scanner her tarayıcıda çalışır mı?</summary><p>Kamera ve görselden QR okuma, BarcodeDetector API'sini destekleyen modern tarayıcılarda çalışır. Destek yoksa oluşturma özelliklerinin tamamı yine çalışır.</p></details>
+      <details><summary>Toplu QR üretiminde verilerim yükleniyor mu?</summary><p>Hayır. CSV/TXT dosyası tarayıcıda okunur ve ZIP yine cihazında oluşturulur.</p></details>
+      <details><summary>Sonradan statik QR'ın hedefini değiştirebilir miyim?</summary><p>QR'ın kendisini değiştiremezsin. Değiştirilebilir hedef istiyorsan kendi alan adındaki bir yönlendirme adresini QR'a kodlayıp yönlendirmeyi daha sonra güncelleyebilirsin.</p></details>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="brand footer-brand" href="#top"><span>OZINARY <b>QR</b></span></a><p>Ücretsiz, sınırsız ve gizlilik odaklı QR araç seti.</p></div><div class="footer-right"><a href="https://ozinary.com" target="_blank" rel="noopener">ozinary.com ↗</a><span>© 2026 Ozinary Yazılım Teknolojileri</span></div></div></footer>
+
+  <section id="printSheet" class="print-sheet" aria-hidden="true"></section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="qrEngine" class="visually-hidden" aria-hidden="true"></div>
+
+  <script src="vendor/qrcode.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+OZINARY QR — OFFLINE KULLANIM
+
+1) Bu klasörü bilgisayarınızda saklayabilir veya statik bir web sunucusuna yükleyebilirsiniz.
+2) Temel QR oluşturma ve dışa aktarma özellikleri tamamen yerel çalışır.
+3) Kamera taraması tarayıcı güvenlik politikaları nedeniyle HTTPS veya localhost gerektirebilir.
+4) PWA kurulumu ve Service Worker için HTTPS/localhost gerekir.
+5) "Site ikonunu dene" özelliği hedef web sitesine isteğe bağlı ağ isteği yapar; diğer QR üretim verileri uygulama sunucusuna gönderilmez.

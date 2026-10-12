@@ -1,0 +1,15 @@
+{
+  "name": "Ozinary QR — Ücretsiz QR Toolkit",
+  "short_name": "Ozinary QR",
+  "description": "Gizlilik odaklı QR oluşturucu, scanner, toplu üretim ve baskı araçları. Çevrimdışı çalışabilir.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f4f0",
+  "theme_color": "#0b0b0d",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ]
+}
